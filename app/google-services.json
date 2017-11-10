@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "634283847933",
+    "firebase_url": "https://mybusant-70948.firebaseio.com",
+    "project_id": "mybusant-70948",
+    "storage_bucket": "mybusant-70948.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634283847933:android:a8f61dfa4bb594b2",
+        "android_client_info": {
+          "package_name": "com.camilagiraldo.mybusant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634283847933-1ove7omepbpaijafij3humest59lso4k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.camilagiraldo.mybusant",
+            "certificate_hash": "77fe0fb849fb811bef4715367e36f875f8e982cf"
+          }
+        },
+        {
+          "client_id": "634283847933-ptbr7qkaaaahrqo1p5rkj079cd0eum7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf1j87ip04FB8Kwrp_1E5jZc-KVKpXN4g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634283847933-ptbr7qkaaaahrqo1p5rkj079cd0eum7u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
