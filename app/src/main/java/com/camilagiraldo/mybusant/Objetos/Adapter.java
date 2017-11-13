@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.camilagiraldo.mybusant.R;
 
@@ -16,31 +17,65 @@ import java.util.ArrayList;
  */
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
-    private ArrayList<String> values;
-    public Adapter(Context applicationContext, ArrayList<String> values) {
-        this.values = values;
+    private ArrayList<Viajes> items;
+    Context ctx;
+
+    public Adapter(ArrayList<Viajes> items, Context ctx) {
+
+        this.items = items;
+        this.ctx = ctx;
     }
 
-
-    @Override
-    public Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.row_recycler,parent,false));
-    }
-
-    @Override
-    public void onBindViewHolder(Adapter.ViewHolder holder, int position) {
-        holder.name.setText(values.get(position));
-    }
 
     @Override
     public int getItemCount() {
-        return values.size();
+        return items.size();
     }
-    class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView name;
-        ViewHolder(View itemView) {
-            super(itemView);
-            name = (TextView) itemView.findViewById(R.id.list_item_text);
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.card_client, viewGroup, false);
+        ViewHolder productosViewHolder = new ViewHolder(v,ctx,items);
+        return productosViewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        //viewHolder.imagen.setImageResource(items.get(i).getImagen());
+        viewHolder.nombre.setText("Ruta:"+String.valueOf(items.get(i).getOrigen_Destino()));
+        viewHolder.visitas.setText("Precio:"+String.valueOf(items.get(i).getEmpresa()));
+        viewHolder.estado.setText("Fecha:"+String.valueOf(items.get(i).getHorarios()));
+
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        // Campos respectivos de un item
+        //public ImageView imagen;
+        public TextView nombre;
+        public TextView visitas;
+        public TextView estado;
+
+        ArrayList<Viajes> items = new ArrayList<Viajes>();
+        Context ctx;
+
+        public ViewHolder(View v, Context ctx, ArrayList<Viajes> items) {
+            super(v);
+            this.items = items;
+            this.ctx = ctx;
+            v.setOnClickListener(this);
+            //imagen = (ImageView) v.findViewById(R.id.imagen);
+            nombre = (TextView) v.findViewById(R.id.cardnombre);
+            visitas = (TextView) v.findViewById(R.id.cardcedula);
+            estado = (TextView) v.findViewById(R.id.cardfecha);
+
+        }
+
+
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(view.getContext(),"funciona putita",Toast.LENGTH_SHORT).show();
         }
     }
+
 }

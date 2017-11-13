@@ -69,7 +69,8 @@ public class DrawerActivity extends AppCompatActivity
 
         Fragment fragmento = null;
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmento = new Horarios_Fragment();
+
+        fragmentManager.beginTransaction().replace(R.id.frame,fragmento).commit();
         if (id == R.id.nav_camera) {
 
             intent = new Intent(getApplicationContext(),PerfilActivity.class);
@@ -78,15 +79,16 @@ public class DrawerActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_gallery) {
-            intent = new Intent(getApplicationContext(),OriDesActivity
+            /*intent = new Intent(getApplicationContext(),OriDesActivity
                     .class);
             startActivity(intent);
             finish();
+*/
 
 
-            //fragmento = new MostrarDatosFragment();
+            fragmento = new MostrarDatosFragment();
 
-           // fragmentManager.beginTransaction().replace(R.id.frame,fragmento).commit();
+            fragmentManager.beginTransaction().replace(R.id.frame,fragmento).commit();
 
             //Toast.makeText(getApplicationContext(),"Bien", Toast.LENGTH_SHORT).show();
             /*intent = new Intent(getApplicationContext(),RecyclerView.class);
